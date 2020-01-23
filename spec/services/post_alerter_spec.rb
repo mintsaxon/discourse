@@ -258,7 +258,7 @@ describe PostAlerter do
       expect(events).to include(event_name: :before_create_notifications_for_users, params: [[user], linking_post])
     end
 
-    it "doesn't notify the linked user if the user is staged and the category is restricted and allows strangers" do
+    it "doesn't notify the linked user if the user is staged, the category is restricted, and the user does not have access" do
       staged_user = Fabricate(:staged)
       group = Fabricate(:group)
       group_member = Fabricate(:user)
